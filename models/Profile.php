@@ -18,6 +18,30 @@ class Profile
         $this->conn = $db;
     }
 
+    // read profiles
+    function read(){
+
+        // select all query
+        $query = "SELECT
+                profileId,
+                profileImage,
+                profileFirstName,
+                profileLastName,
+                createdOn
+            FROM
+                " . $this->table_name . " p
+            ORDER BY
+                createdOn DESC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function getProfileId (){
         return $this->profileId;
     }

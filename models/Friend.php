@@ -18,6 +18,30 @@ class Friend
         $this->conn = $db;
     }
 
+    // read friends
+    function read(){
+
+        // select all query
+        $query = "SELECT
+                friendId,
+                friendProfileImage,
+                friendFirstName,
+                friendLastName,
+                createdOn
+            FROM
+                " . $this->table_name . " p
+            ORDER BY
+                createdOn DESC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function getFriendId (){
         return $this->friendId;
     }

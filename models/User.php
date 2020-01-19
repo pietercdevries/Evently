@@ -18,6 +18,30 @@ class User
         $this->conn = $db;
     }
 
+    // read users
+    function read(){
+
+        // select all query
+        $query = "SELECT
+                userId,
+                userEmail,
+                userPasswordHash,
+                userProfileImage,
+                createdOn
+            FROM
+                " . $this->table_name . " p
+            ORDER BY
+                createdOn DESC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function getUserId (){
         return $this->userId;
     }

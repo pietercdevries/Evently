@@ -18,6 +18,30 @@ class Comment
         $this->conn = $db;
     }
 
+    // read comments
+    function read(){
+
+        // select all query
+        $query = "SELECT
+                commentId,
+                friendId,
+                message,
+                createdOn,
+                eventId
+            FROM
+                " . $this->table_name . " p
+            ORDER BY
+                createdOn DESC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     public function getCommentId (){
         return $this->commentId;
     }
