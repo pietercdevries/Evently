@@ -36,7 +36,7 @@ if($num>0)
         $user_item=array(
             "userId" => $userId,
             "userEmail" => html_entity_decode($userEmail),
-            "userPasswordHash" => html_entity_decode($userPasswordHash),
+            "userPasswordHash" => $userPasswordHash,
             "userProfileImage" => $userProfileImage,
             "createdOn" => $createdOn
         );
