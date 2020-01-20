@@ -95,7 +95,7 @@ class Event
         $stmt->bindParam(":eventCreatorProfileId", $this->eventCreatorProfileId);
         $stmt->bindParam(":weather", $this->weather);
 
-        $this->conn->dbbeginTransaction();
+        $this->conn->beginTransaction();
         $stmt->execute();
         $lastId = $this->conn->lastInsertId();
         $this->conn->commit();
