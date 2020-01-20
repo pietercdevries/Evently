@@ -31,6 +31,82 @@ class Event
         $this->conn = $db;
     }
 
+    // create event
+    function create(){
+
+        // query to insert record
+        $query = "
+            START TRANSACTION;
+        
+            INSERT INTO
+                " . $this->table_name . "
+            SET
+               eventImageUrl=:eventImageUrl,
+               evenTitle=:evenTitle,
+               eventTime=:eventTime,
+               eventDate=:eventDate,
+               eventDescription=:eventDescription,
+               eventDistance=:eventDistance,
+               eventCategories=:eventCategories,
+               eventLikeCounter=:eventLikeCounter,
+               eventCommentCounter=:eventCommentCounter,
+               eventWebsite=:eventWebsite,
+               eventAddress=:eventAddress,
+               eventPhoneNumber=:eventPhoneNumber,
+               eventLiked=:eventLiked,
+               commentedOn=:commentedOn,
+               eventCreatorProfileId=:eventCreatorProfileId,
+               weather=:weather;
+
+            COMMIT;";
+
+        // prepare query
+        $stmt = $this->conn->prepare($query);
+
+        // sanitize
+        $this->eventImageUrl=htmlspecialchars(strip_tags($this->eventImageUrl));
+        $this->evenTitle=htmlspecialchars(strip_tags($this->evenTitle));
+        $this->eventTime=htmlspecialchars(strip_tags($this->eventTime));
+        $this->eventDate=htmlspecialchars(strip_tags($this->eventDate));
+        $this->eventDescription=htmlspecialchars(strip_tags($this->eventDescription));
+        $this->eventDistance=htmlspecialchars(strip_tags($this->eventDistance));
+        $this->eventCategories=htmlspecialchars(strip_tags($this->eventCategories));
+        $this->eventLikeCounter=htmlspecialchars(strip_tags($this->eventLikeCounter));
+        $this->eventCommentCounter=htmlspecialchars(strip_tags($this->eventCommentCounter));
+        $this->eventWebsite=htmlspecialchars(strip_tags($this->eventWebsite));
+        $this->eventAddress=htmlspecialchars(strip_tags($this->eventAddress));
+        $this->eventPhoneNumber=htmlspecialchars(strip_tags($this->eventPhoneNumber));
+        $this->eventLiked=htmlspecialchars(strip_tags($this->eventLiked));
+        $this->commentedOn=htmlspecialchars(strip_tags($this->commentedOn));
+        $this->eventCreatorProfileId=htmlspecialchars(strip_tags($this->eventCreatorProfileId));
+        $this->weather=htmlspecialchars(strip_tags($this->weather));
+
+        // bind values
+        $stmt->bindParam(":eventImageUrl", $this->eventImageUrl);
+        $stmt->bindParam(":evenTitle", $this->evenTitle);
+        $stmt->bindParam(":eventTime", $this->eventTime);
+        $stmt->bindParam(":eventDate", $this->eventDate);
+        $stmt->bindParam(":eventDescription", $this->eventDescription);
+        $stmt->bindParam(":eventDistance", $this->eventDistance);
+        $stmt->bindParam(":eventCategories", $this->eventCategories);
+        $stmt->bindParam(":eventLikeCounter", $this->eventLikeCounter);
+        $stmt->bindParam(":eventCommentCounter", $this->eventCommentCounter);
+        $stmt->bindParam(":eventWebsite", $this->eventWebsite);
+        $stmt->bindParam(":eventAddress", $this->eventAddress);
+        $stmt->bindParam(":eventPhoneNumber", $this->eventPhoneNumber);
+        $stmt->bindParam(":eventLiked", $this->eventLiked);
+        $stmt->bindParam(":commentedOn", $this->commentedOn);
+        $stmt->bindParam(":eventCreatorProfileId", $this->eventCreatorProfileId);
+        $stmt->bindParam(":weather", $this->weather);
+
+        // execute query
+        if($stmt->execute()){
+            return true;
+        }
+
+        return false;
+    }
+
     // read events
     function read($eventId){
 
