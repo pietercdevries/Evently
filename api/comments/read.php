@@ -47,7 +47,7 @@ if($num>0)
             "profileFirstName" => html_entity_decode($profileFirstName),
             "profileLastName" => html_entity_decode($profileLastName),
             "createdOn" => $profileCreatedOn
-        )
+        );
 
         $event_item=array(
             "eventId" => $eventId,
