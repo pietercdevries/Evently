@@ -70,7 +70,7 @@ class Comment
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i', $eventId);
+        $stmt->bind_param('s', $eventId);
 
         // execute query
         $stmt->execute();
