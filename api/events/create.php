@@ -23,22 +23,22 @@ $data = json_decode(file_get_contents("php://input"));
 
 // make sure data is not empty
 if (
-    !empty($data->eventImageUrl) &&
-    !empty($data->evenTitle) &&
-    !empty($data->eventTime) &&
-    !empty($data->eventDate) &&
-    !empty($data->eventDescription) &&
-    !empty($data->eventDistance) &&
-    !empty($data->eventCategories) &&
-    !empty($data->eventLikeCounter) &&
-    !empty($data->eventCommentCounter) &&
-    !empty($data->eventWebsite) &&
-    !empty($data->eventAddress) &&
-    !empty($data->eventPhoneNumber) &&
-    !empty($data->eventLiked) &&
-    !empty($data->commentedOn) &&
-    !empty($data->eventCreatorProfileId) &&
-    !empty($data->weather)
+    isset($data->eventImageUrl) &&
+    isset($data->evenTitle) &&
+    isset($data->eventTime) &&
+    isset($data->eventDate) &&
+    isset($data->eventDescription) &&
+    isset($data->eventDistance) &&
+    isset($data->eventCategories) &&
+    isset($data->eventLikeCounter) &&
+    isset($data->eventCommentCounter) &&
+    isset($data->eventWebsite) &&
+    isset($data->eventAddress) &&
+    isset($data->eventPhoneNumber) &&
+    isset($data->eventLiked) &&
+    isset($data->commentedOn) &&
+    isset($data->eventCreatorProfileId) &&
+    isset($data->weather)
 ) {
     // set event property values
     $event->eventImageUrl = $data->eventImageUrl;
