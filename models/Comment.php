@@ -19,7 +19,7 @@ class Comment
     }
 
     // read comments
-    function read(){
+    function read($eventId){
 
         // select all query
         $query = "SELECT
@@ -63,6 +63,8 @@ class Comment
                 profile as pro on pro.profileId = evt.eventCreatorProfileId
             JOIN
                 friend as friend on friend.friendId = comment.friendId
+            WHERE
+                comment.eventId = ".$eventId."
             ORDER BY
                 comment.createdOn DESC";
 

@@ -14,8 +14,11 @@ $db = $database->getConnection();
 // initialize object
 $comment = new Comment($db);
 
+// Get event Id
+$eventId = htmlspecialchars($_GET["eventId"])
+
 // query comments
-$stmt = $comment->read();
+$stmt = $comment->read($eventId);
 $num = $stmt->rowCount();
 
 // check if more than 0 record found
