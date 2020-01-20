@@ -36,8 +36,6 @@ class Event
 
         // query to insert record
         $query = "
-            START TRANSACTION;
-        
             INSERT INTO
                 " . $this->table_name . "
             SET
@@ -56,9 +54,7 @@ class Event
                eventLiked=:eventLiked,
                commentedOn=:commentedOn,
                eventCreatorProfileId=:eventCreatorProfileId,
-               weather=:weather;
-
-            COMMIT;";
+               weather=:weather;";
 
         // prepare query
         $stmt = $this->conn->prepare($query);
