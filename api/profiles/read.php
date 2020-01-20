@@ -41,7 +41,7 @@ if($num>0)
             "createdOn" => $createdOn
         );
 
-        array_push($profile_arr["records"], $profile_item);
+        array_push($profile_arr["profiles"], $profile_item);
     }
 
     // set response code - 200 OK

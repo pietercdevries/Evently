@@ -55,7 +55,7 @@ if($num>0)
             "createdOn" => $createdOn
         );
 
-        array_push($event_arr["records"], $event_item);
+        array_push($event_arr["events"], $event_item);
     }
 
     // set response code - 200 OK

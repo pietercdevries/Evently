@@ -41,7 +41,7 @@ if($num>0)
             "eventId" => $eventId
         );
 
-        array_push($comment_arr["records"], $comment_item);
+        array_push($comment_arr["comments"], $comment_item);
     }
 
     // set response code - 200 OK

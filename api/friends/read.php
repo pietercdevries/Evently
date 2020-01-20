@@ -41,7 +41,7 @@ if($num>0)
             "createdOn" => $createdOn
         );
 
-        array_push($friend_arr["records"], $friend_item);
+        array_push($friend_arr["friends"], $friend_item);
     }
 
     // set response code - 200 OK

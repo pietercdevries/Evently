@@ -41,7 +41,7 @@ if($num>0)
             "createdOn" => $createdOn
         );
 
-        array_push($user_arr["records"], $user_item);
+        array_push($user_arr["users"], $user_item);
     }
 
     // set response code - 200 OK
