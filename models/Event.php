@@ -32,35 +32,100 @@ class Event
     }
 
     // read events
-    function read(){
+    function read($eventId){
+
+        if($eventId != null && $eventId != "")
+        {
+            return $this->readByEventId($eventId);
+        }
+        else
+        {
+            return $this->readEvents();
+        }
+    }
+
+    // read events
+    function readEvents(){
 
         // select all query
         $query = "SELECT
-                eventId,
-                eventImageUrl,
-                evenTitle,
-                eventTime,
-                eventDate,
-                eventDescription,
-                eventDistance,
-                eventCategories,
-                eventLikeCounter,
-                eventCommentCounter,
-                eventWebsite,
-                eventAddress,
-                eventPhoneNumber,
-                eventLiked,
-                commentedOn,
-                eventCreatorProfileId,
-                weather,
-                createdOn
+                evt.eventId,
+                evt.eventImageUrl,
+                evt.evenTitle,
+                evt.eventTime,
+                evt.eventDate,
+                evt.eventDescription,
+                evt.eventDistance,
+                evt.eventCategories,
+                evt.eventLikeCounter,
+                evt.eventCommentCounter,
+                evt.eventWebsite,
+                evt.eventAddress,
+                evt.eventPhoneNumber,
+                evt.eventLiked,
+                evt.commentedOn,
+                evt.weather,
+                evt.createdOn as eventCreatedOn,
+                pro.profileId,
+                pro.profileImageUrl,
+                pro.profileFirstName,
+                pro.profileLastName,
+                pro.createdOn as profileCreatedOn
             FROM
-                " . $this->table_name . " p
+                " . $this->table_name . " as evt
+            JOIN 
+                profile as pro on pro.profileId = evt.eventCreatorProfileId
             ORDER BY
                 createdOn DESC";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    // read events
+    function readByEventId($eventId){
+
+        // select all query
+        $query = "SELECT
+                evt.eventId,
+                evt.eventImageUrl,
+                evt.evenTitle,
+                evt.eventTime,
+                evt.eventDate,
+                evt.eventDescription,
+                evt.eventDistance,
+                evt.eventCategories,
+                evt.eventLikeCounter,
+                evt.eventCommentCounter,
+                evt.eventWebsite,
+                evt.eventAddress,
+                evt.eventPhoneNumber,
+                evt.eventLiked,
+                evt.commentedOn,
+                evt.weather,
+                evt.createdOn as eventCreatedOn,
+                pro.profileId,
+                pro.profileImageUrl,
+                pro.profileFirstName,
+                pro.profileLastName,
+                pro.createdOn as profileCreatedOn
+            FROM
+                " . $this->table_name . " as evt
+            JOIN 
+                profile as pro on pro.profileId = evt.eventCreatorProfileId
+            WHERE
+                evt.eventId = :eventId
+            ORDER BY
+                createdOn DESC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":eventId", $eventId);
 
         // execute query
         $stmt->execute();

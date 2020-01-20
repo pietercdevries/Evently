@@ -14,8 +14,11 @@ $db = $database->getConnection();
 // initialize object
 $event = new Event($db);
 
+// Get event Id
+$eventId = htmlspecialchars($_GET["eventId"]);
+
 // query events
-$stmt = $event->read();
+$stmt = $event->read($eventId);
 $num = $stmt->rowCount();
 
 // check if more than 0 record found
@@ -33,6 +36,14 @@ if($num>0)
         // just $name only
         extract($row);
 
+        $profile_item=array(
+            "profileId" => $profileId,
+            "profileImageUrl" => html_entity_decode($profileImageUrl),
+            "profileFirstName" => html_entity_decode($profileFirstName),
+            "profileLastName" => html_entity_decode($profileLastName),
+            "createdOn" => $profileCreatedOn
+        );
+
         $event_item=array(
             "eventId" => $eventId,
             "eventImageUrl" => html_entity_decode($eventImageUrl),
@@ -49,9 +60,9 @@ if($num>0)
             "eventPhoneNumber" => html_entity_decode($eventPhoneNumber),
             "eventLiked" => $eventLiked,
             "commentedOn" => $commentedOn,
-            "eventCreator" => $eventCreator,
+            "eventCreator" => $profile_item,
             "weather" => html_entity_decode($weather),
-            "createdOn" => $createdOn
+            "createdOn" => $eventCreatedOn
         );
 
         array_push($event_arr["events"], $event_item);

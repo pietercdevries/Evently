@@ -56,7 +56,7 @@ class Comment
                 friend.friendLastName,
                 friend.createdOn as friendCreatedOn
             FROM
-                comment as comment
+                 " . $this->table_name . " as comment
             JOIN 
                 event as evt on evt.eventId = comment.eventId
             JOIN 
