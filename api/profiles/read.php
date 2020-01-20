@@ -35,7 +35,7 @@ if($num>0)
 
         $profile_item=array(
             "profileId" => $profileId,
-            "profileProfileImage" => $profileProfileImage,
+            "profileProfileImageUrl" => html_entity_decode($profileProfileImageUrl),
             "profileFirstName" => html_entity_decode($profileFirstName),
             "profileLastName" => html_entity_decode($profileLastName),
             "createdOn" => $createdOn

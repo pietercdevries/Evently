@@ -33,9 +33,17 @@ if($num>0)
         // just $name only
         extract($row);
 
-        $comment_item=array(
-            "commentId" => commentId,
+        $friend_item=array{
             "friendId" => $friendId,
+            "friendProfileImageUrl" => html_entity_decode($friendProfileImageUrl),
+            "friendFirstName" => html_entity_decode($friendFirstName),
+            "friendLastName" => html_entity_decode($friendLastName),
+            "createdOn" => $createdOn
+        };
+
+        $comment_item=array(
+            "commentId" => $commentId,
+            "friend" => $friend_item,
             "message" => html_entity_decode($message),
             "createdOn" => $createdOn,
             "eventId" => $eventId

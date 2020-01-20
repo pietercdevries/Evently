@@ -23,13 +23,20 @@ class Comment
 
         // select all query
         $query = "SELECT
-                commentId,
-                friendId,
-                message,
-                createdOn,
-                eventId
+                comment.commentId,
+                comment.friendId,
+                comment.message,
+                comment.createdOn,
+                comment.eventId,
+                friend.friendId,
+                friend.friendProfileImageUrl,
+                friend.friendFirstName,
+                friend.friendLastName,
+                friend.createdOn
             FROM
-                " . $this->table_name . " p
+                " . $this->table_name . " as comment
+            JOIN
+                friend as friend on frined.friendId = comment.friend.Id
             ORDER BY
                 createdOn DESC";
 

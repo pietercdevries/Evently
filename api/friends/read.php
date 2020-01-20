@@ -35,7 +35,7 @@ if($num>0)
 
         $friend_item=array(
             "friendId" => $friendId,
-            "friendProfileImage" => $friendProfileImage,
+            "friendProfileImageUrl" => html_entity_decode($friendProfileImageUrl),
             "friendFirstName" => html_entity_decode($friendFirstName),
             "friendLastName" => html_entity_decode($friendLastName),
             "createdOn" => $createdOn

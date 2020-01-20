@@ -8,7 +8,7 @@ class Event
     private $table_name = "event";
 
     public $eventId;
-    public $eventImage;
+    public $eventImageUrl;
     public $evenTitle;
     public $eventTime;
     public $eventDate;
@@ -21,7 +21,6 @@ class Event
     public $eventAddress;
     public $eventPhoneNumber;
     public $eventLiked;
-    public $eventAttendingMembers;
     public $commentedOn;
     public $eventCreatorProfileId;
     public $weather;
@@ -38,7 +37,7 @@ class Event
         // select all query
         $query = "SELECT
                 eventId,
-                eventImage,
+                eventImageUrl,
                 evenTitle,
                 eventTime,
                 eventDate,
@@ -51,7 +50,6 @@ class Event
                 eventAddress,
                 eventPhoneNumber,
                 eventLiked,
-                eventAttendingMembers,
                 commentedOn,
                 eventCreatorProfileId,
                 weather,
@@ -78,12 +76,12 @@ class Event
         $this->eventId = $eventId;
     }
 
-    function getEventImage (){
-        return $this->eventImage;
+    function getEventImageUrl (){
+        return $this->eventImageUrl;
     }
 
-    function setEventImage($eventImage){
-        $this->eventImage = $eventImage;
+    function setEventImageUrl($eventImageUrl){
+        $this->eventImageUrl = $eventImageUrl;
     }
 
     function getEvenTitle (){

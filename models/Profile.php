@@ -8,7 +8,7 @@ class Profile
     private $table_name = "profile";
 
     public $profileId;
-    public $profileImage;
+    public $profileImageUrl;
     public $profileFirstName;
     public $profileLastName;
     public $createdOn;
@@ -24,7 +24,7 @@ class Profile
         // select all query
         $query = "SELECT
                 profileId,
-                profileImage,
+                profileImageUrl,
                 profileFirstName,
                 profileLastName,
                 createdOn
@@ -50,12 +50,12 @@ class Profile
         $this->profileId = $profileId;
     }
 
-    public function getProfileImage (){
-        return $this->profileImage;
+    public function getProfileImageUrl (){
+        return $this->profileImageUrl;
     }
 
-    public function setProfileImage($profileImage){
-        $this->profileImage = $profileImage;
+    public function setProfileImageUrl($profileImageUrl){
+        $this->profileImageUrl = $profileImageUrl;
     }
 
     public function getProfileFirstName (){

@@ -8,7 +8,7 @@ class Friend
     private $table_name = "friend";
 
     public $friendId;
-    public $friendProfileImage;
+    public $friendProfileImageUrl;
     public $friendFirstName;
     public $friendLastName;
     public $createdOn;
@@ -24,7 +24,7 @@ class Friend
         // select all query
         $query = "SELECT
                 friendId,
-                friendProfileImage,
+                friendProfileImageUrl,
                 friendFirstName,
                 friendLastName,
                 createdOn
@@ -50,12 +50,12 @@ class Friend
         $this->friendId = $friendId;
     }
 
-    public function getFriendProfileImage (){
-        return $this->friendProfileImage;
+    public function getFriendProfileImageUrl (){
+        return $this->friendProfileImageUrl;
     }
 
-    public function setFriendProfileImage($friendProfileImage){
-        $this-> friendProfileImage= $friendProfileImage;
+    public function setFriendProfileImageUrl($friendProfileImageUrl){
+        $this-> friendProfileImageUrl = $friendProfileImageUrl;
     }
 
     public function getFriendFirstName(){

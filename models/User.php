@@ -10,7 +10,7 @@ class User
     public $userId;
     public $userEmail;
     public $userPasswordHash;
-    public $userProfileImage;
+    public $userProfileImageUrl;
     public $createdOn;
 
     // constructor with $db as database connection
@@ -26,7 +26,7 @@ class User
                 userId,
                 userEmail,
                 userPasswordHash,
-                userProfileImage,
+                userProfileImageUrl,
                 createdOn
             FROM
                 " . $this->table_name . " p
@@ -66,12 +66,12 @@ class User
         $this->userPasswordHash = $userPasswordHash;
     }
 
-    public function getUserProfileImage (){
-        return $this->userProfileImage;
+    public function getUserProfileImageUrl (){
+        return $this->userProfileImageUrl;
     }
 
-    public function setUserProfileImage($userProfileImage){
-        $this->userProfileImage = $userProfileImage;
+    public function setUserProfileImageUrl($userProfileImageUrl){
+        $this->userProfileImageUrl = $userProfileImageUrl;
     }
 
     public function getCreatedOn (){

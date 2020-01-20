@@ -37,7 +37,7 @@ if($num>0)
             "userId" => $userId,
             "userEmail" => html_entity_decode($userEmail),
             "userPasswordHash" => $userPasswordHash,
-            "userProfileImage" => $userProfileImage,
+            "userProfileImageUrl" => html_entity_decode($userProfileImageUrl),
             "createdOn" => $createdOn
         );
 
