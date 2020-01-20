@@ -41,12 +41,6 @@ if (
     !empty($data->weather)
 ) {
     // set event property values
-    $event->name = $data->name;
-    $event->price = $data->price;
-    $event->description = $data->description;
-    $event->category_id = $data->category_id;
-    $event->created = date('Y-m-d H:i:s');
-
     $event->eventImageUrl = $data->eventImageUrl;
     $event->evenTitle = $data->evenTitle;
     $event->eventTime = date('HH:mm:ss', $data->eventTime);
