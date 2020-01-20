@@ -3,6 +3,10 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
+// include database and object files
+include_once '../../config/Database.php';
+include_once '../../models/Friend.php';
+
 // instantiate database and friend object
 $database = new Database();
 $db = $database->getConnection();
@@ -33,7 +37,7 @@ if($num>0)
             "friendId" => $friendId,
             "friendProfileImage" => $friendProfileImage,
             "friendFirstName" => html_entity_decode($friendFirstName),
-            "friendLastName" => $friendLastName,
+            "friendLastName" => html_entity_decode($friendLastName),
             "createdOn" => $createdOn
         );
 
