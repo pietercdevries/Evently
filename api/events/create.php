@@ -26,8 +26,8 @@ $data = json_decode(file_get_contents("php://input"));
     // set event property values
     $event->eventImageUrl = $data->eventImageUrl;
     $event->evenTitle = $data->evenTitle;
-    $event->eventTime = date('HH:mm:ss', $data->eventTime);
-    $event->eventDate = date('yyyy-mm-dd', $data->eventDate);
+    $event->eventTime = $data->eventTime;
+    $event->eventDate = $data->eventDate;
     $event->eventDescription = $data->eventDescription;
     $event->eventDistance = $data->eventDistance;
     $event->eventCategories = $data->eventCategories;
