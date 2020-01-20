@@ -99,12 +99,11 @@ class Event
         $stmt->bindParam(":eventCreatorProfileId", $this->eventCreatorProfileId);
         $stmt->bindParam(":weather", $this->weather);
 
-        // execute query
-        if($stmt->execute()){
-            return true;
-        }
-
-        return false;
+        $this->conn->dbbeginTransaction();
+        $stmt->execute();
+        $lastId = $this->conn->lastInsertId();
+        $this->conn->commit();
+        return $lastId;
     }
 
     // read events

@@ -59,13 +59,15 @@ if (
     $event->weather = $data->weather;
 
     // create the event
-    if ($event->create()) {
 
+    $eventId = $event->create();
+
+    if ($eventId) {
         // set response code - 201 created
         http_response_code(201);
 
         // tell the user
-        echo json_encode(array("message" => "event was created."));
+        echo json_encode(array("eventId" => "$eventId"));
     } // if unable to create the event, tell the user
     else {
 
