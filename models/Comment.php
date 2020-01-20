@@ -64,12 +64,13 @@ class Comment
             JOIN
                 friend as friend on friend.friendId = comment.friendId
             WHERE
-                comment.eventId = ".$eventId."
+                comment.eventId = ?
             ORDER BY
                 comment.createdOn DESC";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $eventId);
 
         // execute query
         $stmt->execute();
