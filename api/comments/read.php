@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $comment = new Comment($db);
 
 // Get event Id
-$eventId = htmlspecialchars($_GET["eventId"])
+$eventId = htmlspecialchars($_GET["eventId"]);
 
 // query comments
 $stmt = $comment->read($eventId);
