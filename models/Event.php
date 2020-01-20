@@ -76,7 +76,7 @@ class Event
             JOIN 
                 profile as pro on pro.profileId = evt.eventCreatorProfileId
             ORDER BY
-                createdOn DESC";
+                evt.createdOn DESC";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -121,7 +121,7 @@ class Event
             WHERE
                 evt.eventId = :eventId
             ORDER BY
-                createdOn DESC";
+                evt.createdOn DESC";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
