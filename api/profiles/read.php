@@ -23,7 +23,7 @@ if($num>0)
 {
     // profiles array
     $profile_arr=array();
-    $profile_arr["records"]=array();
+    $profile_arr["profiles"]=array();
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

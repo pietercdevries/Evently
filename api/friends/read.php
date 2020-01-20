@@ -23,7 +23,7 @@ if($num>0)
 {
     // friends array
     $friend_arr=array();
-    $friend_arr["records"]=array();
+    $friend_arr["friends"]=array();
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

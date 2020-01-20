@@ -23,7 +23,7 @@ if($num>0)
 {
     // comments array
     $comment_arr=array();
-    $comment_arr["records"]=array();
+    $comment_arr["comments"]=array();
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

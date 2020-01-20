@@ -23,7 +23,7 @@ if($num>0)
 {
     // users array
     $user_arr=array();
-    $user_arr["records"]=array();
+    $user_arr["users"]=array();
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))

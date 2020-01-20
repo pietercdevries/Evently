@@ -23,7 +23,7 @@ if($num>0)
 {
     // events array
     $event_arr=array();
-    $event_arr["records"]=array();
+    $event_arr["events"]=array();
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
