@@ -23,18 +23,44 @@ class Comment
 
         // select all query
         $query = "SELECT
+                evt.eventId,
+                evt.eventImageUrl,
+                evt.evenTitle,
+                evt.eventTime,
+                evt.eventDate,
+                evt.eventDescription,
+                evt.eventDistance,
+                evt.eventCategories,
+                evt.eventLikeCounter,
+                evt.eventCommentCounter,
+                evt.eventWebsite,
+                evt.eventAddress,
+                evt.eventPhoneNumber,
+                evt.eventLiked,
+                evt.commentedOn,
+                evt.weather,
+                evt.createdOn as eventCreatedOn,
+                pro.profileId,
+                pro.profileImageUrl,
+                pro.profileFirstName,
+                pro.profileLastName,
+                pro.createdOn as profileCreatedOn,
                 comment.commentId,
                 comment.friendId,
                 comment.message,
-                comment.createdOn,
+                comment.createdOn as commentCreatedOn,
                 comment.eventId,
                 friend.friendId,
                 friend.friendProfileImageUrl,
                 friend.friendFirstName,
                 friend.friendLastName,
-                friend.createdOn
+                friend.createdOn as friendCreatedOn
             FROM
                 comment as comment
+            JOIN 
+                event as evt on evt.eventId = comment.eventId
+            JOIN 
+                profile as pro on pro.profileId = evt.eventCreatorProfileId
             JOIN
                 friend as friend on friend.friendId = comment.friendId
             ORDER BY

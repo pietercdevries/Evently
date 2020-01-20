@@ -38,15 +38,44 @@ if($num>0)
             "friendProfileImageUrl" => html_entity_decode($friendProfileImageUrl),
             "friendFirstName" => html_entity_decode($friendFirstName),
             "friendLastName" => html_entity_decode($friendLastName),
-            "createdOn" => $createdOn
+            "createdOn" => $friendCreatedOn
+        );
+
+        $profile_item=array(
+            "profileId" => $profileId,
+            "profileProfileImageUrl" => html_entity_decode($profileProfileImageUrl),
+            "profileFirstName" => html_entity_decode($profileFirstName),
+            "profileLastName" => html_entity_decode($profileLastName),
+            "createdOn" => $profileCreatedOn
+        )
+
+        $event_item=array(
+            "eventId" => $eventId,
+            "eventImageUrl" => html_entity_decode($eventImageUrl),
+            "evenTitle" => html_entity_decode($evenTitle),
+            "eventTime" => html_entity_decode($eventTime),
+            "eventDate" => html_entity_decode($eventDate),
+            "eventDescription" => html_entity_decode($eventDescription),
+            "eventDistance" => html_entity_decode($eventDistance),
+            "eventCategories" => html_entity_decode($eventCategories),
+            "eventLikeCounter" => $eventLikeCounter,
+            "eventCommentCounter" => $eventCommentCounter,
+            "eventWebsite" => html_entity_decode($eventWebsite),
+            "eventAddress" => html_entity_decode($eventAddress),
+            "eventPhoneNumber" => html_entity_decode($eventPhoneNumber),
+            "eventLiked" => $eventLiked,
+            "commentedOn" => $commentedOn,
+            "eventCreator" => $profile_item,
+            "weather" => html_entity_decode($weather),
+            "createdOn" => $eventCreatedOn
         );
 
         $comment_item=array(
             "commentId" => $commentId,
             "friend" => $friend_item,
             "message" => html_entity_decode($message),
-            "createdOn" => $createdOn,
-            "eventId" => $eventId
+            "createdOn" => $commentCreatedOn,
+            "event" => $event_item
         );
 
         array_push($comment_arr["comments"], $comment_item);
