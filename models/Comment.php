@@ -34,11 +34,11 @@ class Comment
                 friend.friendLastName,
                 friend.createdOn
             FROM
-                " . $this->table_name . " as comment
+                comment as comment
             JOIN
-                friend as friend on frined.friendId = comment.friend.Id
+                friend as friend on friend.friendId = comment.friendId
             ORDER BY
-                createdOn DESC";
+                comment.createdOn DESC";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
