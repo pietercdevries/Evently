@@ -59,7 +59,7 @@ if (
         http_response_code(201);
 
         // tell the user
-        echo json_encode(array("eventId" => "$eventId"));
+        echo $eventId;
     } // if unable to create the event, tell the user
     else {
 
