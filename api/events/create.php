@@ -28,15 +28,7 @@ if (
     isset($data->eventTime) &&
     isset($data->eventDate) &&
     isset($data->eventDescription) &&
-    isset($data->eventDistance) &&
-    isset($data->eventCategories) &&
-    isset($data->eventLikeCounter) &&
-    isset($data->eventCommentCounter) &&
-    isset($data->eventWebsite) &&
     isset($data->eventAddress) &&
-    isset($data->eventPhoneNumber) &&
-    isset($data->eventLiked) &&
-    isset($data->commentedOn) &&
     isset($data->eventCreatorProfileId) &&
     isset($data->weather)
 ) {
