@@ -22,6 +22,16 @@ $event = new Event($db);
 $data = json_decode(file_get_contents("php://input"));
 
 // make sure data is not empty
+if (
+    isset($data->eventImageUrl) &&
+    isset($data->evenTitle) &&
+    isset($data->eventTime) &&
+    isset($data->eventDate) &&
+    isset($data->eventDescription) &&
+    isset($data->eventAddress) &&
+    isset($data->eventCreatorProfileId) &&
+    isset($data->weather)
+) {
     // set event property values
     $event->eventImageUrl = $data->eventImageUrl;
     $event->evenTitle = $data->evenTitle;
@@ -59,3 +69,12 @@ $data = json_decode(file_get_contents("php://input"));
         // tell the user
         echo json_encode(array("message" => "Unable to create event."));
     }
+} // tell the user data is incomplete
+else {
+
+    // set response code - 400 bad request
+    http_response_code(400);
+
+    // tell the user
+    echo json_encode(array("message" => "Unable to create event. Data is incomplete."));
+}
