@@ -23,14 +23,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 // make sure data is not empty
 if (
-    isset($data->eventImageUrl) &&
-    isset($data->evenTitle) &&
-    isset($data->eventTime) &&
-    isset($data->eventDate) &&
-    isset($data->eventDescription) &&
-    isset($data->eventAddress) &&
-    isset($data->eventCreatorProfileId) &&
-    isset($data->weather)
+    isset($data->eventImageUrl) 
 ) {
     // set event property values
     $event->eventImageUrl = $data->eventImageUrl;
