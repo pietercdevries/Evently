@@ -51,7 +51,7 @@ if($num>0)
             "evenTitle" => html_entity_decode($evenTitle),
             "eventTime" => html_entity_decode($eventTime),
             "eventDate" => html_entity_decode($eventDate),
-            "eventDescription" => html_entity_decode($eventDescription),
+            "eventDescription" => $eventDescription,
             "eventDistance" => html_entity_decode($eventDistance),
             "eventCategories" => html_entity_decode($eventCategories),
             "eventLikeCounter" => $eventLikeCounter,
