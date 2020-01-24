@@ -15,7 +15,7 @@ $db = $database->getConnection();
 $event = new Event($db);
 
 // Get event Id
-var $eventId = null;
+$eventId = null;
 $eventId = htmlspecialchars($_GET["eventId"]);
 
 // query events
