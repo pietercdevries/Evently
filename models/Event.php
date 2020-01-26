@@ -11,6 +11,7 @@ class Event
     public $eventImageUrl;
     public $evenTitle;
     public $eventTime;
+    public $eventEndTime;
     public $eventDate;
     public $eventDescription;
     public $eventDistance;
@@ -19,6 +20,7 @@ class Event
     public $eventCommentCounter;
     public $eventWebsite;
     public $eventAddress;
+    public $eventPlace;
     public $eventPhoneNumber;
     public $eventLiked;
     public $commentedOn;
@@ -42,6 +44,7 @@ class Event
                eventImageUrl=:eventImageUrl,
                evenTitle=:evenTitle,
                eventTime=:eventTime,
+               eventEndTime=:eventEndTime,
                eventDate=:eventDate,
                eventDescription=:eventDescription,
                eventDistance=:eventDistance,
@@ -50,6 +53,7 @@ class Event
                eventCommentCounter=:eventCommentCounter,
                eventWebsite=:eventWebsite,
                eventAddress=:eventAddress,
+               eventPlace=:eventPlace,
                eventPhoneNumber=:eventPhoneNumber,
                eventLiked=:eventLiked,
                commentedOn=:commentedOn,
@@ -63,6 +67,7 @@ class Event
         $this->eventImageUrl=htmlspecialchars(strip_tags($this->eventImageUrl));
         $this->evenTitle=htmlspecialchars(strip_tags($this->evenTitle));
         $this->eventTime=htmlspecialchars(strip_tags($this->eventTime));
+        $this->eventEndTime=htmlspecialchars(strip_tags($this->eventEndTime));
         $this->eventDate=htmlspecialchars(strip_tags($this->eventDate));
         $this->eventDescription=htmlspecialchars(strip_tags($this->eventDescription));
         $this->eventDistance=htmlspecialchars(strip_tags($this->eventDistance));
@@ -71,6 +76,7 @@ class Event
         $this->eventCommentCounter=htmlspecialchars(strip_tags($this->eventCommentCounter));
         $this->eventWebsite=htmlspecialchars(strip_tags($this->eventWebsite));
         $this->eventAddress=htmlspecialchars(strip_tags($this->eventAddress));
+        $this->eventAddress=htmlspecialchars(strip_tags($this->eventPlace));
         $this->eventPhoneNumber=htmlspecialchars(strip_tags($this->eventPhoneNumber));
         $this->eventLiked=htmlspecialchars(strip_tags($this->eventLiked));
         $this->commentedOn=htmlspecialchars(strip_tags($this->commentedOn));
@@ -81,6 +87,7 @@ class Event
         $stmt->bindParam(":eventImageUrl", $this->eventImageUrl);
         $stmt->bindParam(":evenTitle", $this->evenTitle);
         $stmt->bindParam(":eventTime", $this->eventTime);
+        $stmt->bindParam(":eventEndTime", $this->eventEndTime);
         $stmt->bindParam(":eventDate", $this->eventDate);
         $stmt->bindParam(":eventDescription", $this->eventDescription);
         $stmt->bindParam(":eventDistance", $this->eventDistance);
@@ -89,6 +96,7 @@ class Event
         $stmt->bindParam(":eventCommentCounter", $this->eventCommentCounter);
         $stmt->bindParam(":eventWebsite", $this->eventWebsite);
         $stmt->bindParam(":eventAddress", $this->eventAddress);
+        $stmt->bindParam(":eventPlace", $this->eventPlace);
         $stmt->bindParam(":eventPhoneNumber", $this->eventPhoneNumber);
         $stmt->bindParam(":eventLiked", $this->eventLiked);
         $stmt->bindParam(":commentedOn", $this->commentedOn);
@@ -124,6 +132,7 @@ class Event
                 evt.eventImageUrl,
                 evt.evenTitle,
                 evt.eventTime,
+                evt.eventEndTime,
                 evt.eventDate,
                 evt.eventDescription,
                 evt.eventDistance,
@@ -132,6 +141,7 @@ class Event
                 evt.eventCommentCounter,
                 evt.eventWebsite,
                 evt.eventAddress,
+                evt.eventPlace,
                 evt.eventPhoneNumber,
                 evt.eventLiked,
                 evt.commentedOn,
@@ -194,6 +204,7 @@ class Event
                 evt.eventImageUrl,
                 evt.evenTitle,
                 evt.eventTime,
+                evt.eventEndTime,
                 evt.eventDate,
                 evt.eventDescription,
                 evt.eventDistance,
@@ -202,6 +213,7 @@ class Event
                 evt.eventCommentCounter,
                 evt.eventWebsite,
                 evt.eventAddress,
+                evt.eventPlace,
                 evt.eventPhoneNumber,
                 evt.eventLiked,
                 evt.commentedOn,
@@ -261,6 +273,14 @@ class Event
 
     function setEventTime($eventTime){
         $this->eventTime = $eventTime;
+    }
+
+    function getEventEndTime(){
+        return $this->eventEndTime;
+    }
+
+    function setEventEndTime($eventEndTime){
+        $this->eventEndTime = $eventEndTime;
     }
 
     function getEventDate (){
@@ -325,6 +345,14 @@ class Event
 
     function setEventAddress($eventAddress){
         $this->eventAddress = $eventAddress;
+    }
+
+    function setEventPlace($eventPlace){
+        $this->eventPlace = $eventPlace;
+    }
+
+    function getEventPlace (){
+        return $this->eventPlace;
     }
 
     function getEventPhoneNumber (){

@@ -36,6 +36,7 @@ if (
     $event->eventImageUrl = $data->eventImageUrl;
     $event->evenTitle = $data->evenTitle;
     $event->eventTime = $data->eventTime;
+    $event->eventEndTime = $data->eventEndTime;
     $event->eventDate = $data->eventDate;
     $event->eventDescription = $data->eventDescription;
     $event->eventDistance = $data->eventDistance;
@@ -44,6 +45,7 @@ if (
     $event->eventCommentCounter = $data->eventCommentCounter;
     $event->eventWebsite = $data->eventWebsite;
     $event->eventAddress = $data->eventAddress;
+    $event->eventPlace = $data->eventPlace;
     $event->eventPhoneNumber = $data->eventPhoneNumber;
     $event->eventLiked = $data->eventLiked;
     $event->commentedOn = $data->commentedOn;
