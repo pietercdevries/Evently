@@ -47,7 +47,6 @@ if($num>0)
 
         // Get attending members
         $attending_friends_arr=array();
-        $attending_friends_arr["attendingFriends"]=array();
         $attendingStmt = $event->getAttendingEventsByEventId($eventId);
 
         while ($attendingRow = $attendingStmt->fetch(PDO::FETCH_ASSOC))
@@ -59,7 +58,7 @@ if($num>0)
                 "friendLastName" => $friendLastName
             );
 
-            array_push($attending_friends_arr["attendingFriends"], $attending_friend);
+            array_push($attending_friends_arr, $attending_friend);
         }
 
         $event_item=array(
