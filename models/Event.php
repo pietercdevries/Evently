@@ -76,7 +76,7 @@ class Event
         $this->eventCommentCounter=htmlspecialchars(strip_tags($this->eventCommentCounter));
         $this->eventWebsite=htmlspecialchars(strip_tags($this->eventWebsite));
         $this->eventAddress=htmlspecialchars(strip_tags($this->eventAddress));
-        $this->eventAddress=htmlspecialchars(strip_tags($this->eventPlace));
+        $this->eventPlace=htmlspecialchars(strip_tags($this->eventPlace));
         $this->eventPhoneNumber=htmlspecialchars(strip_tags($this->eventPhoneNumber));
         $this->eventLiked=htmlspecialchars(strip_tags($this->eventLiked));
         $this->commentedOn=htmlspecialchars(strip_tags($this->commentedOn));
