@@ -80,7 +80,7 @@ if($num>0)
             "commentedOn" => $commentedOn,
             "eventCreator" => $profile_item,
             "weather" => html_entity_decode($weather),
-            "attendingFriends" => $attending_friends,
+            "attendingFriends" => $attending_friends_arr,
             "createdOn" => $eventCreatedOn
         );
 
