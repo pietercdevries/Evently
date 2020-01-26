@@ -28,6 +28,9 @@ if($num>0)
     // events array
     $event_arr=array();
     $event_arr["events"]=array();
+    $attending_friends_arr=array();
+    $attending_friends_arr["attendingFriends"]=array();
+    $attendingStmt = null;
 
     // retrieve our table contents
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -44,6 +47,21 @@ if($num>0)
             "profileLastName" => html_entity_decode($profileLastName),
             "createdOn" => $profileCreatedOn
         );
+
+        // Get attending members
+        $attendingStmt = $event->getAttendingEventsByEventId($eventId);
+
+        while ($attendingRow = $attendingStmt->fetch(PDO::FETCH_ASSOC))
+        {
+            $attending_friends=array(
+                "friendId" => $friendId,
+                "friendProfileImageUrl" => $friendProfileImageUrl,
+                "friendFirstName" => $friendFirstName,
+                "friendLastName" => $friendLastName
+            );
+
+            array_push($attending_friends_arr["attendingFriends"], $attending_friends);
+        }
 
         $event_item=array(
             "eventId" => $eventId,
@@ -63,6 +81,7 @@ if($num>0)
             "commentedOn" => $commentedOn,
             "eventCreator" => $profile_item,
             "weather" => html_entity_decode($weather),
+            "attendingFriends" => $attending_friends,
             "createdOn" => $eventCreatedOn
         );
 

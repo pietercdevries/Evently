@@ -158,6 +158,33 @@ class Event
         return $stmt;
     }
 
+    // read attending events
+    function getAttendingEventsByEventId($eventId){
+        // select all query
+        $query = "SELECT
+                frnd.friendId,
+                frnd.friendProfileImageUrl,
+                frnd.friendFirstName,
+                frnd.friendLastName
+            FROM
+                attendingMembers as atnd
+            JOIN 
+                friend as frnd on frnd.friendId = atnd.friendId
+            WHERE
+                atnd.eventId = :eventId
+            ORDER BY
+                atnd.friendId ASC";
+
+        // prepare query statement
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":eventId", $eventId);
+
+        // execute query
+        $stmt->execute();
+
+        return $stmt;
+    }
+
     // read events
     function readByEventId($eventId){
 
