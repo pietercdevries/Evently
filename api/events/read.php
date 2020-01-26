@@ -52,10 +52,10 @@ if($num>0)
         while ($attendingRow = $attendingStmt->fetch(PDO::FETCH_ASSOC))
         {
             $attending_friend=array(
-                "friendId" => $friendId,
-                "friendProfileImageUrl" => $friendProfileImageUrl,
-                "friendFirstName" => $friendFirstName,
-                "friendLastName" => $friendLastName
+                "friendId" => $attendingRow['friendId'],
+                "friendProfileImageUrl" => $attendingRow['friendProfileImageUrl'],
+                "friendFirstName" => $attendingRow['friendFirstName'],
+                "friendLastName" => $attendingRow['friendLastName']
             );
 
             array_push($attending_friends_arr, $attending_friend);
